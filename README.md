@@ -1,6 +1,7 @@
 # Federal Reserve Board Working Paper Twitter Bot
 
-@FRBWorkingPaper\s\s
+@FRBWorkingPaper
+
 https://twitter.com/FRBWorkingPaper
 
 This twitter bot automatically posts the newest working papers from the Federal Reserve Board of Governors.
