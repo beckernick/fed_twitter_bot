@@ -23,10 +23,6 @@ class TwitterAPI:
     def tweet(self, message):
         self.api.update_status(status = message)
 
-    def search_tweets(self, string, count = 15):
-        tweet_list = self.api.search(string, count)
-        return tweet_list
-
     def get_last_tweet(self):
         tweet = self.api.user_timeline(id = self.api, count = 1)[0]
         return tweet.text
