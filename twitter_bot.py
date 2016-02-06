@@ -7,7 +7,7 @@ Created on Tue Feb  2 20:23:52 2016
 
 # Twitter Bot that tweets the most recent Federal Reserve Economic Discussion Series Working Paper
 
-import tweepy
+import tweepy, time
 
 class TwitterAPI:
     def __init__(self):
@@ -63,10 +63,13 @@ papers_dictionary = {z[0]: list(z[1:]) for z in zip(working_paper_numbers, paper
 
 if __name__ == "__main__":
     twitter = TwitterAPI()
-    most_recent_paper = twitter.get_last_tweet().split(":")[0]
+    most_recent_paper = twitter.get_last_tweet().split(":")[0].split(" ")[-1]
     #print most_recent_paper
-    if most_recent_paper != "New Working Paper " + working_paper_numbers[0]:
-        twitter.tweet("New Working Paper " + working_paper_numbers[0] + ": " + paper_links[0])
+    if most_recent_paper != working_paper_numbers[0]:
+        current_spot = working_paper_numbers.index(most_recent_paper)
+        for each in reversed(xrange(current_spot)):
+            twitter.tweet("New FRB Working Paper " + working_paper_numbers[current_spot - each] + ": " + paper_links[current_spot - each])
+            time.sleep(30)
 
 
 
