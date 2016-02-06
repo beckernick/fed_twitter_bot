@@ -68,8 +68,9 @@ if __name__ == "__main__":
     if most_recent_paper != working_paper_numbers[0]:
         current_spot = working_paper_numbers.index(most_recent_paper)
         for each in reversed(xrange(current_spot)):
-            twitter.tweet("New FRB Working Paper " + working_paper_numbers[current_spot - each] + ": " + paper_links[current_spot - each])
+            twitter.tweet("New FRB Working Paper " + working_paper_numbers[each] + ": " + paper_links[each])
             time.sleep(30)
+
 
 
 
